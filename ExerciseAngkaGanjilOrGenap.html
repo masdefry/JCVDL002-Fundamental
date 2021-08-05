@@ -8,17 +8,17 @@
 </head>
 <body>
     <script>
-        let angkaInputan = prompt('Silahkan masukan angka :')
-        let hasil = angkaInputan % 2
-        // 4 % 2 = 0
-        // 5 % 2 = 1
-        // 10 % 2 = 0
-        // 15 % 2 = 1
+        // Step1. Menerima inputan berupa angka dari user
+        let inputUser = prompt('Masukan Angka :')
 
-        if(hasil === 0){
-            alert('Bilangan Genap')
-        }else if(hasil === 1){
-            alert('Bilangan Ganjil')
+        // Step2. Cari sisa hasil bagi inputan dari user
+        let sisaHasilBagi = inputUser % 2
+
+        // Step3. Tentukan apakah inputan dari user bilangan genap / ganjil
+        if(sisaHasilBagi === 0){
+            alert('Angka Genap')
+        }else if(sisaHasilBagi === 1){
+            alert('Angka Ganjil')
         }else{
             alert('Inputan Tidak Sesuai')
         }
