@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market V1.2</title>
+</head>
+<body>
+    <!-- 
+        0. Menentukan data untuk masing-masing item
+        1. Menerima input qty dari user
+            - Apabila qty melebihi stock, maka qty = stock yg tersedia
+        
+        2. Cari total per-item
+        3. Cari grand total
+        4. Menerima input total bayar dari user
+            - Apabila total bayar < grand total, transaksi ditolak
+            - Apabila total bayar >= grand total, transaksi diterima
+     -->
+
+    <script>
+        // Step 0.
+        let product1 = 'Apel'
+        let product2 = 'Anggur'
+        let product3 = 'Jeruk'
+
+        let hargaProduct1 = 10000
+        let hargaProduct2 = 15000
+        let hargaProduct3 = 20000
+
+        let stockProduct1 = 10
+        let stockProduct2 = 15
+        let stockProduct3 = 20
+
+        // Step 1. 
+        let qtyProduct1 = prompt(`Masukan Quantity ${product1}. Stock ${product1} = ${stockProduct1}`)
+        if(qtyProduct1 > stockProduct1){
+            alert('Quantity yg anda masukan melebihi stock! Quantity = Stock!')
+            qtyProduct1 = stockProduct1
+        }
+
+        let qtyProduct2 = prompt(`Masukan Quantity ${product2}. Stock ${product2} = ${stockProduct2}`)
+        if(qtyProduct2 > stockProduct2){
+            alert('Quantity yg anda masukan melebihi stock! Quantity = Stock!')
+            qtyProduct2 = stockProduct2
+        }
+
+        let qtyProduct3 = prompt(`Masukan Quantity ${product3}. Stock ${product3} = ${stockProduct3}`)
+        if(qtyProduct3 > stockProduct3){
+            alert('Quantity yg anda masukan melebihi stock! Quantity = Stock!')
+            qtyProduct3 = stockProduct3
+        }
+
+        // Step 2.
+        let totalProduct1 = qtyProduct1 * hargaProduct1
+        let totalProduct2 = qtyProduct2 * hargaProduct2
+        let totalProduct3 = qtyProduct3 * hargaProduct3
+
+        // Step 3.
+        let grandTotal = totalProduct1 + totalProduct2 + totalProduct3
+
+        // Step 4.
+        let totalBayarUser = prompt(`
+            DAFTAR BELANJA \n
+            ${product1} : ${qtyProduct1} x ${hargaProduct1} = ${totalProduct1} \n
+            ${product2} : ${qtyProduct2} x ${hargaProduct2} = ${totalProduct2} \n
+            ${product3} : ${qtyProduct3} x ${hargaProduct3} = ${totalProduct3} \n
+            TOTAL BELANJA : ${grandTotal}
+        `)
+
+        if(totalBayarUser < grandTotal){
+            alert('Transaksi Dibatalkan!')
+        }else{
+            alert(`
+                Transaksi Terkonfirmasi. Uang Kembalian Anda = ${totalBayarUser - grandTotal}
+            `)
+        }
+
+    </script> 
+</body>
+</html>
