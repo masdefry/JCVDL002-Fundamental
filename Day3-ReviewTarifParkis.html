@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Apps</title>
+</head>
+<body>
+    <script>
+    // Step1. Identifikasi Data
+    // Jam Masuk, Jam Keluar, Tarif Awal, Tarif Selanjutnya
+
+    let tarif1 = 4000
+    let tarif2 = 1000
+
+    let jamMasuk = prompt('Jam Masuk :') // 6
+    
+    let jamKeluar
+    do{
+        jamKeluar = prompt('Jam Keluar: ') // 5 ---> 4 ---> 7
+    }while(parseInt(jamKeluar) < parseInt(jamMasuk))
+    
+    // Step2. Hitung Tarif Parkir
+    //          1. <= 4jam ---> 4000
+    //          2. > 4jam ---> Jam berikutnya akan dikenakan tarif 1000/jam = Tarif4JamPertama + ((DurasiParkir - 4) * 1000)
+    let lamaParkir = jamKeluar - jamMasuk
+
+    let tarif = 0
+    if(lamaParkir <= 4){
+        tarif = tarif1
+    }else if(lamaParkir > 4){
+        tarif = tarif1 + ((lamaParkir - 4) * tarif2)
+    }
+
+    alert('Total Biaya Parkir Yaitu ' + tarif)
+    </script>
+</body>
+</html>

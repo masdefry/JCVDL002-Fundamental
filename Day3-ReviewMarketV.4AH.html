@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market V1.4</title>
+</head>
+<body>
+    <script>
+        // Step1. Identifikasi Data
+        // Nama Product, Harga Product, Stock Product, Cart
+
+        let product = [["Apel", 10000, 10], ["Anggur", 15000, 15], ["Jeruk", 20000, 20]]
+        let cart = []
+        let menu 
+
+        do{
+            // Menampilkan Keranjang Belanja
+            // Product x Qty = Total Price
+            let userCart = ''
+            if(cart.length !== 0){
+                for(let i=0; i<cart.length; i++){
+                for(let j=0; j<cart[i].length; j++){
+                    if(j === 0){
+                        userCart += cart[i][j]
+                    }else if(j === 1){
+                        userCart += ` x ${cart[i][j]} = `
+                    }else if(j === 2){
+                        userCart += `${cart[i][j]}`
+                    } 
+                }
+            }
+            }
+
+            menu = prompt(`${userCart} \n Pilih Menu \n 1. Lihat Buah \n 2. Tambah Buah \n 3. Menghapus Buah \n 4. Membeli Buah \n 5. Exit`)
+
+            if(parseInt(menu) === 1){ // Menu Menampilkan Daftar Buah
+                let namaProduct = ''
+
+                for(let i=0; i<product.length; i++){        // i=0: true  
+                    for(let j=0; j<product[i].length; j++){ // j=0: true ---> j=1: true ---> j=2: 
+                        if(j===0){
+                            namaProduct += `Buah ${product[i][j]}, `
+                        }else if(j===1){
+                            namaProduct += `Harga   : Rp.${product[i][j]}, `
+                        }else if(j===2){
+                            namaProduct += `Stock   : ${product[i][j]}`
+                        }
+                    }
+                    namaProduct += '\n'
+                }
+
+                alert(namaProduct)
+            }else if(parseInt(menu) === 2){ // Menu Menambah Buah
+                let newProductName = prompt("Masukan Nama Buah:")
+                let newProductPrice = prompt("Masukan Harga Buah:")
+                let newProductStock = prompt("Masukan Stock Buah:")
+
+                product.push([newProductName, newProductPrice, newProductStock]) // [..., ..., ...]
+            }else if(parseInt(menu) === 3){ // Menu Menghapus Buah
+                let namaProduct = ''
+
+                for(let i=0; i<product.length; i++){        // i=0: true  
+                    for(let j=0; j<product[i].length; j++){ // j=0: true ---> j=1: true ---> j=2: 
+                        if(j===0){
+                            namaProduct += `${i+1} Buah ${product[i][j]}, `
+                        }else if(j===1){
+                            namaProduct += `Harga   : Rp.${product[i][j]}, `
+                        }else if(j===2){
+                            namaProduct += `Stock   : ${product[i][j]}`
+                        }
+                    }
+                    namaProduct += '\n'
+                }
+
+                let productToDelete = prompt(` 
+                ${namaProduct} \n
+                Masukan Nomor Buah yang Akan di Hapus
+                `) // 3
+
+                product.splice(productToDelete-1, 1)
+
+                alert('Product Berhasil Dihapus')
+            }else if(parseInt(menu) === 4){ // Menu Untuk Membeli Buah
+                let namaProduct = ''
+
+                for(let i=0; i<product.length; i++){        // i=0: true  
+                    for(let j=0; j<product[i].length; j++){ // j=0: true ---> j=1: true ---> j=2: 
+                        if(j===0){
+                            namaProduct += `${i+1} Buah ${product[i][j]}, `
+                        }else if(j===1){
+                            namaProduct += `Harga   : Rp.${product[i][j]}, `
+                        }else if(j===2){
+                            namaProduct += `Stock   : ${product[i][j]}`
+                        }
+                    }
+                    namaProduct += '\n'
+                }
+
+                let productToBuy = prompt(` 
+                ${namaProduct} \n
+                Masukan Nomor Buah yang Akan di Beli
+                `)
+                let productPrice = product[productToBuy-1][1]
+                productToBuy = product[productToBuy-1][0]
+                let qtyToBuy = prompt('Masukan Quantity yang Akan di Beli')
+
+                cart.push([productToBuy, qtyToBuy, productPrice * qtyToBuy])
+            }
+
+        }while(parseInt(menu) != 5)
+
+        // 
+
+    //     Tugas1: Lakukan validasi untuk inputan user ketika akan menambah data buah (nama, harga, stock)
+    //     Tugas2: Lakukan validasi ketika user memilih buah yg akan di hapus
+    //     Tugas3: Lakukan validasi ketika user memilih buah yg akan dibeli
+    //     Tugas4: Buatlah Menu Checkout, Uang yg dibayarkan < grand total -> Transaksi dibatalkan, Uang yg dibayarkan >= grand total -> Transaksi berhasil & tampilkan struk
+    // </script>
+</body>
+</html>
