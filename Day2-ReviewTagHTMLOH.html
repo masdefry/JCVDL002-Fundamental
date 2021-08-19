@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Tag HTML</title>
+</head>
+<body>
+    <!-- Shift + 1/! -->
+    <!-- Tag Untuk Typography -->
+    <h1>Hello World!</h1>
+    <h2>Hello World!</h2>
+    <h3>Hello World!</h3>
+    <h4>Hello World!</h4>
+    <h5>Hello World!</h5>
+    <h6>Hello World!</h6>
+
+    <!-- Tag Untuk Membuat Paragraph -->
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, harum nisi. Soluta cupiditate, eum rerum molestiae eligendi, magni provident vero totam nesciunt labore voluptates sed odit atque, consequuntur blanditiis neque!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, tempora iste! Officia alias doloribus pariatur nisi porro aliquid. Ea repellendus provident porro recusandae quas soluta culpa expedita odit amet corporis.
+    </p>
+
+    <!-- Tag Untuk Formatting Text -->
+    <b>Ini Bold</b>
+    <u>Ini Underline</u>
+    <i>Ini Italic</i>
+    <mark>Ini Mark</mark>
+    <del>Ini Delete</del>
+
+    <!-- Tag Untuk Membuat List -->
+    <ol>
+        <li>Manchester United</li>
+        <li>Chelsea</li>
+        <li>Liverpool</li>
+    </ol>
+    <ul>
+        <li>Javascript</li>
+        <li>PHP</li>
+        <li>Phyton</li>
+    </ul>
+
+    <!-- Tag Untuk Membuat Inputan -->
+    <input type="text" placeholder="Input Email (Ex. aaa@aaa.com)">
+    <input type="password" placeholder="Type Password">
+    <input type="email" placeholder="Enter Your Email">
+    <br>
+    <input type="checkbox"> Single
+    <input type="checkbox"> Married
+    <br>
+    <input type="radio"> Unmarried
+    <input type="radio"> Married
+    <br><br><br><br><br>
+    <form>
+        <label for="name">
+            Name
+            <input type="text" name="inputName" id="inputName1" class="inputName2" placeholder="Masukan Nama Anda">
+        </label>
+        <label>
+            Password
+            <input type="password" class="inputName2" id="inputPassword1" placeholder="Masukan Password Anda">
+        </label>
+        <label>
+            Tanggal Lahir
+        </label>
+        <input type="date" class="inputName2" placeholder="Masukan Tanggal Lahir">
+    </form>
+    <br>
+    <button onclick="submit()">Submit</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <script>
+        function submit(){
+            console.log(document.getElementsByClassName("inputName2")[1].value)
+            console.log(document.getElementById("inputName1").value)
+        }
+    </script>
+</body>
+</html>
