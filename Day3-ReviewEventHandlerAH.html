@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="onInput" placeholder="Masukan Nama Anda" oninput="reviewEventHandler()"> 
+    <input type="text" id="onKeyUp" placeholder="Masukan Umur Anda" onkeyup="reviewEventHandler()"> 
+
+    <script>
+        function reviewEventHandler(){
+            // console.log(document.getElementById("onInput").value)
+            console.log(document.getElementById("onKeyUp").value)
+        }
+    </script>
+</body>
+</html>
